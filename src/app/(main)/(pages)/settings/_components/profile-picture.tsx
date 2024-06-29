@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import UploadCareButton from './uploadcare-button'
+// import UploadCareButton from './uploadcare-button'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -27,7 +27,7 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
     <div className="flex flex-col">
       <p className="text-lg text-white"> Profile Picture</p>
       <div className="flex h-[30vh] flex-col items-center justify-center">
-        {userImage ? (
+        {/* {userImage ? (
           <>
             <div className="relative h-full w-2/12">
               <Image
@@ -44,8 +44,8 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
             </Button>
           </>
         ) : (
-        <UploadCareButton onUpload={onUpload} />
-        )}
+        // <UploadCareButton onUpload={onUpload} />
+        )} */}
       </div>
     </div>
   )
