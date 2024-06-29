@@ -1,52 +1,51 @@
-'use client'
-import React, { useEffect, useRef } from 'react'
-import * as LR from '@uploadcare/blocks'
-import { useRouter } from 'next/navigation'
+// 'use client'
+// import React, { useEffect, useRef } from 'react'
+// import * as LR from '@uploadcare/blocks'
+// import { useRouter } from 'next/navigation'
 
-type Props = {
-  onUpload: (e: string) => any
-}
+// type Props = {
+//   onUpload: (e: string) => any
+// }
 
-LR.registerBlocks(LR)
+// LR.registerBlocks(LR)
 
-const UploadCareButton = ({ onUpload }: Props) => {
-  const router = useRouter()
+// const UploadCareButton = ({ onUpload }: Props) => {
+//   const router = useRouter()
 
-  const ctxProviderRef = useRef<typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider>(new LR.UploadCtxProvider());
+//   const ctxProviderRef = useRef<
+//     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
+//   >(null)
 
-  // const ctxProviderRef = useRef<
-  //   typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
-  // >(null)
-
-  useEffect(() => {
-    const handleUpload = async (e: any) => {
-      const file = await onUpload(e.detail.cdnUrl)
-      if (file) {
-        router.refresh()
-      }
-    }
-    ctxProviderRef.current.addEventListener('file-upload-success', handleUpload)
-  }, [])
-
-  return (
+//   useEffect(() => {
+//     const handleUpload = async (e: any) => {
+//       const file = await onUpload(e.detail.cdnUrl)
+//       if (file) {
+//         router.refresh()
+//       }
+//     }
   
-    <div>
-      <lr-config
-        ctx-name="my-uploader"
-        pubkey="98e264ebe8671c24b8e6"
-      />
+//      ctxProviderRef.current.addEventListener('file-upload-success', handleUpload)
+//   }, [])
 
-      <lr-file-uploader-regular
-        ctx-name="my-uploader"
-        css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.39.0/web/lr-file-uploader-regular.min.css"`}
-      />
+//   return (
+  
+//     <div>
+//       <lr-config
+//         ctx-name="my-uploader"
+//         pubkey="98e264ebe8671c24b8e6"
+//       />
 
-      <lr-upload-ctx-provider
-        ctx-name="my-uploader"
-        ref={ctxProviderRef}
-      />
-    </div>
-  )
-}
+//       <lr-file-uploader-regular
+//         ctx-name="my-uploader"
+//         css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.39.0/web/lr-file-uploader-regular.min.css"`}
+//       />
 
-export default UploadCareButton
+//       <lr-upload-ctx-provider
+//         ctx-name="my-uploader"
+//         ref={ctxProviderRef}
+//       />
+//     </div>
+//   )
+// }
+
+// export default UploadCareButton
